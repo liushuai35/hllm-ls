@@ -29,3 +29,14 @@ if __name__ == '__main__':
         run_yaml = f"../TORCHRUN run.py --config_file {config_file[0]} {' '.join(unknown_args)}"
 
     os.system(run_yaml)
+
+"""
+python3 main.py \
+--config_file overall/ID.yaml IDNet/hstu.yaml \
+--loss nce \
+--epochs 201 \
+--dataset Pixel200K \
+--train_batch_size 10 \
+--MAX_ITEM_LIST_LENGTH 10 \
+--optim_args.learning_rate 1e-4
+"""
