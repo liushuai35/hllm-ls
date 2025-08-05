@@ -10,8 +10,14 @@
 
 import os
 import argparse
+import torch
 
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
+
+# 根据需求选择精度模式
+torch.set_float32_matmul_precision('medium')  # 中等精度（推荐，平衡性能和精度）
+# 或
+# torch.set_float32_matmul_precision('high')   # 高精度（性能稍低，精度更接近纯FP32）
 # os.environ["OMP_NUM_THREADS"] = '1'
 # os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
@@ -30,13 +36,5 @@ if __name__ == '__main__':
 
     os.system(run_yaml)
 
-"""
-python3 main.py \
---config_file overall/ID.yaml IDNet/hstu.yaml \
---loss nce \
---epochs 201 \
---dataset Pixel200K \
---train_batch_size 10 \
---MAX_ITEM_LIST_LENGTH 10 \
---optim_args.learning_rate 1e-4
-"""
+
+    

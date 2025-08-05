@@ -3,9 +3,9 @@ seed: 2020
 state: INFO
 reproducibility: True
 checkpoint_dir: 'saved'
-show_progress: False
+show_progress: True
 
-log_wandb: False
+log_wandb: True
 wandb_project: 'REC'
 MAX_ITEM_LIST_LENGTH: 10
 
